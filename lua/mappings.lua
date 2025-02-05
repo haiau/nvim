@@ -38,17 +38,24 @@ vim.keymap.set("n", "<leader>zh", fzf.help_tags, { desc = "Tìm trong help" })
 vim.keymap.set("n", "<leader>zr", fzf.oldfiles, { desc = "Tìm file đã mở gần đây" })
 vim.api.nvim_set_keymap("n", "<F3>", ':lua require("fzf-lua").files()<CR>', { noremap = true, silent = true })
 
-local telescope = require "telescope.builtin"
+-- telescope
+vim.keymap.set(
+  "n",
+  "<leader>fs",
+  require("telescope").extensions.live_grep_args.live_grep_args,
+  { noremap = true, desc = "Tìm nội dung bằng live grep args" }
+)
 
--- Tìm kiếm và đưa vào Quickfix List
-vim.keymap.set("n", "<leader>sg", function()
-  telescope.live_grep {
-    attach_mappings = function(_, tmap)
-      tmap("i", "<C-q>", function(prompt_bufnr)
-        require("telescope.actions").send_selected_to_qflist(prompt_bufnr)
-        require("telescope.actions").open_qflist(prompt_bufnr)
-      end)
-      return true
-    end,
-  }
-end, { desc = "Tìm kiếm với live_grep và gửi vào Quickfix" })
+-- grug-far
+--
+vim.keymap.set(
+  "n",
+  "<leader>fr",
+  require("muren.api").toggle_ui,
+  { noremap = true, silent = true, desc = "Tìm & thay thế với muren" }
+)
+
+-- vim-rest-console
+vim.keymap.set("n", "<leader>rr", ":call VrcQuery()<CR>", { desc = "Send HTTP request" })
+vim.keymap.set("n", "<leader>rh", ":call VrcQuery('HEAD')<CR>", { desc = "Send HEAD request" })
+vim.keymap.set("n", "<leader>rp", ":call VrcQuery('POST')<CR>", { desc = "Send POST request" })

@@ -23,6 +23,12 @@ luarocks --version
 
 ```
 
+2) ast-grep (https://github.com/ast-grep/ast-grep)
+```
+brew install ast-grep
+
+```
+
 2) rg (https://github.com/BurntSushi/ripgrep) 
 
 ```
@@ -41,3 +47,24 @@ brew install fd
 ```
 :Codeium Auth
 ```
+
+5) rest.vim (https://github.com/rest-nvim/rest.nvim)
+
+#### Change to LuaJIT
+```
+brew install LuaJIT
+
+brew unlink lua
+
+brew link --overwrite luajit
+
+```
+#### Install parser
+```
+:TSIntall http
+
+```
+
+# Ref
+
+https://github.com/nvim-telescope/telescope-live-grep-args.nvim

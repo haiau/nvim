@@ -48,23 +48,17 @@ return {
   {
 
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "nvim-telescope/telescope-live-grep-args.nvim",
+        -- This will not install any breaking changes.
+        -- For major updates, this must be adjusted manually.
+        version = "^1.0.0",
+      },
+    },
     config = function()
-      local telescope = require "telescope"
-      telescope.setup {
-        defaults = {
-          mappings = {
-            i = {
-              ["<C-q>"] = require("telescope.actions").send_selected_to_qflist
-                + require("telescope.actions").open_qflist,
-            },
-            n = {
-              ["<C-q>"] = require("telescope.actions").send_selected_to_qflist
-                + require("telescope.actions").open_qflist,
-            },
-          },
-        },
-      }
+      require "configs.telescope"
     end,
   },
   -- TreeSitter
@@ -90,6 +84,44 @@ return {
     config = function()
       require("spectre").setup() {}
     end,
+  },
+  -- Find And Replace plugin for neovim
+  {
+    "MagicDuck/grug-far.nvim",
+    config = function()
+      require("grug-far").setup {
+        -- options, see Configuration section below
+        -- there are no required options atm
+        -- engine = 'ripgrep' is default, but 'astgrep' can be specified
+        -- engine = "astgrep",
+      }
+    end,
+  },
+  {
+    "AckslD/muren.nvim",
+    config = function()
+      require "configs.muren"
+    end,
+  },
+  {
+    "diepm/vim-rest-console",
+    config = function()
+      vim.g.vrc_set_default_mapping = 0 -- Tắt keymap mặc định để tránh xung đột
+      vim.g.vrc_curl_opts = "--connect-timeout 10" -- Thêm tùy chọn cho cURL
+      vim.g.vrc_output_buffer_name = "REST Response" -- Đặt tên buffer output
+    end,
+    event = "VeryLazy",
+  },
+  {
+    "rest-nvim/rest.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      opts = function(_, opts)
+        opts.ensure_installed = opts.ensure_installed or {}
+        table.insert(opts.ensure_installed, "http")
+        require("rest-nvim").setup()
+      end,
+    },
   },
   --{
   --  "preservim/nerdtree",
