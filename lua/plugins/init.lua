@@ -28,8 +28,10 @@ return {
   -- NvimTree
   {
     "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
+    --cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
     config = function()
+      --vim.g.nvim_tree_respect_buf_cwd = 1
+
       require "configs.nvim-tree"
     end,
   },

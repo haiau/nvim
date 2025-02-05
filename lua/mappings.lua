@@ -36,6 +36,7 @@ vim.keymap.set("n", "<leader>zg", fzf.live_grep, { desc = "Tìm nội dung trong
 vim.keymap.set("n", "<leader>zb", fzf.buffers, { desc = "Danh sách buffer" })
 vim.keymap.set("n", "<leader>zh", fzf.help_tags, { desc = "Tìm trong help" })
 vim.keymap.set("n", "<leader>zr", fzf.oldfiles, { desc = "Tìm file đã mở gần đây" })
+vim.api.nvim_set_keymap("n", "<F3>", ':lua require("fzf-lua").files()<CR>', { noremap = true, silent = true })
 
 local telescope = require "telescope.builtin"
 
@@ -51,4 +52,3 @@ vim.keymap.set("n", "<leader>sg", function()
     end,
   }
 end, { desc = "Tìm kiếm với live_grep và gửi vào Quickfix" })
-

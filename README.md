@@ -37,4 +37,7 @@ brew install fd
 
 ```
 
-4) 
+4) Codeium (https://github.com/Exafunction/codeium.nvim)
+```
+:Codeium Auth
+```
