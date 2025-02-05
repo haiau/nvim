@@ -7,3 +7,34 @@
 # Credits
 
 1) Lazyvim starter https://github.com/LazyVim/starter as nvchad's starter was inspired by Lazyvim's . It made a lot of things easier!
+
+# Requirements
+
+- Neovim >= 0.8
+
+# Installation
+
+1) luarocks
+
+```
+brew install luarocks
+
+luarocks --version
+
+```
+
+2) rg (https://github.com/BurntSushi/ripgrep) 
+
+```
+brew install ripgrep
+
+```
+
+3) fd (https://github.com/sharkdp/fd)
+
+```
+brew install fd
+
+```
+
+4) 

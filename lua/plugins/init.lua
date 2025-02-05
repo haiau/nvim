@@ -1,23 +1,44 @@
 return {
+  -- Conform
   {
     "stevearc/conform.nvim",
     event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
   },
+  -- Codeium
+  {
+    "Exafunction/codeium.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    event = "BufEnter",
+    config = function()
+      require "configs.codeium"
+    end,
+  },
+
+  -- LSP
   {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
     end,
   },
+  -- NvimTree
   {
-    "preservim/nerdtree",
-    cmd = { "NERDTreeToggle", "NERDTreeFind" },
+    "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
+    config = function()
+      require "configs.nvim-tree"
+    end,
   },
+  -- Coc
   {
     "neoclide/coc.nvim",
     branch = "release",
   },
+  -- Telescope
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     run = "make",
@@ -52,18 +73,7 @@ return {
       require "configs.treesitter"
     end,
   },
-  -- Codeium
-  {
-    "Exafunction/codeium.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
-    event = "BufEnter",
-    config = function()
-      require "configs.codeium"
-    end,
-  },
+  -- FZF-lua
   {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" }, -- Biểu tượng đẹp hơn
@@ -71,6 +81,7 @@ return {
       require "configs.fzf-lua"
     end,
   },
+  -- Spectre
   {
     "nvim-pack/nvim-spectre",
     dependencies = { "nvim-lua/plenary.nvim" }, -- Cần thiết để plugin hoạt động
@@ -78,4 +89,8 @@ return {
       require("spectre").setup() {}
     end,
   },
+  --{
+  --  "preservim/nerdtree",
+  --  cmd = { "NERDTreeToggle", "NERDTreeFind" },
+  --},
 }

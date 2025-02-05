@@ -25,12 +25,6 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
-require("nvim-tree").setup {
-  view = {
-    width = 40,
-  },
-}
-
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
