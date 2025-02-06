@@ -65,6 +65,12 @@ brew link --overwrite luajit
 
 ```
 
+### Install mac port then
+```
+sudo port install gq
+```
+
+
 # Ref
 
 https://github.com/nvim-telescope/telescope-live-grep-args.nvim
