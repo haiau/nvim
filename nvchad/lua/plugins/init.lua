@@ -118,6 +118,10 @@ return {
     opts = require "configs.kulala-config",
     event = "VeryLazy",
   },
+  {
+    "williamboman/mason.nvim",
+    event = "VeryLazy",
+  },
   --[[
   {
     "rest-nvim/rest.nvim",
