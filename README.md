@@ -65,9 +65,9 @@ brew link --overwrite luajit
 
 ```
 
-### Install mac port then
+### jq (https://jqlang.org/)
 ```
-sudo port install gq
+brew install jq
 ```
 
 

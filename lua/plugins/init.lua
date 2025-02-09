@@ -112,6 +112,13 @@ return {
     end,
     event = "VeryLazy",
   },
+
+  {
+    "mistweaverco/kulala.nvim",
+    opts = require "configs.kulala-config",
+    event = "VeryLazy",
+  },
+  --[[
   {
     "rest-nvim/rest.nvim",
     dependencies = {
@@ -123,8 +130,11 @@ return {
       end,
     },
   },
-  --{
-  --  "preservim/nerdtree",
-  --  cmd = { "NERDTreeToggle", "NERDTreeFind" },
-  --},
+  
+  {
+    "preservim/nerdtree",
+    cmd = { "NERDTreeToggle", "NERDTreeFind" },
+  },
+  ]]
+  --
 }

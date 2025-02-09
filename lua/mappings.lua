@@ -59,3 +59,47 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>rr", ":call VrcQuery()<CR>", { desc = "Send HTTP request" })
 vim.keymap.set("n", "<leader>rh", ":call VrcQuery('HEAD')<CR>", { desc = "Send HEAD request" })
 vim.keymap.set("n", "<leader>rp", ":call VrcQuery('POST')<CR>", { desc = "Send POST request" })
+
+--- kulala
+vim.keymap.set(
+  "n",
+  "<leader>kr",
+  "<cmd>lua require('kulala').run()<cr>",
+  { noremap = true, silent = true, desc = "Execute the request" }
+)
+vim.keymap.set(
+  "n",
+  "[",
+  "<cmd>lua require('kulala').jump_prev()<cr>",
+  { noremap = true, silent = true, desc = "Jump to the previous request" }
+)
+vim.keymap.set(
+  "n",
+  "]",
+  "<cmd>lua require('kulala').jump_next()<cr>",
+  { noremap = true, silent = true, desc = "Jump to the next request" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>ki",
+  "<cmd>lua require('kulala').inspect()<cr>",
+  { noremap = true, silent = true, desc = "Inspect the current request" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>kt",
+  "<cmd>lua require('kulala').toggle_view()<cr>",
+  { noremap = true, silent = true, desc = "Toggle between body and headers" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>kc",
+  "<cmd>lua require('kulala').copy()<cr>",
+  { noremap = true, silent = true, desc = "Copy the current request as a curl command" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>kp",
+  "<cmd>lua require('kulala').from_curl()<cr>",
+  { noremap = true, silent = true, desc = "Paste curl from clipboard as http request" }
+)
