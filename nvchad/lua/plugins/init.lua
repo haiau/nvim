@@ -20,26 +20,51 @@ return {
 
   -- LSP
   {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "neovim/nvim-lspconfig" },
+    config = function()
+      require("mason-lspconfig").setup({
+        -- Cài đặt LSP tự động:
+        ensure_installed = {
+          "biome",
+          "lua_ls",
+          "jsonls",
+          "html",
+          "cssls",
+          "vtsls"
+        },
+        automatic_installation = true,
+      })
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
+    dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
     config = function()
       require "configs.lspconfig"
     end,
   },
   -- NvimTree
-  {
-    "nvim-tree/nvim-tree.lua",
-    --cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
-    config = function()
-      --vim.g.nvim_tree_respect_buf_cwd = 1
-
-      require "configs.nvim-tree"
-    end,
-  },
+  -- {
+  --   "nvim-tree/nvim-tree.lua",
+  --   --cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
+  --   config = function()
+  --     --vim.g.nvim_tree_respect_buf_cwd = 1
+  --
+  --     require "configs.nvim-tree"
+  --   end,
+  -- },
   -- Coc
-  {
-    "neoclide/coc.nvim",
-    branch = "release",
-  },
+  -- {
+  --   "neoclide/coc.nvim",
+  --   branch = "release",
+  -- },
   -- Telescope
   {
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -106,8 +131,8 @@ return {
   {
     "diepm/vim-rest-console",
     config = function()
-      vim.g.vrc_set_default_mapping = 0 -- Tắt keymap mặc định để tránh xung đột
-      vim.g.vrc_curl_opts = "--connect-timeout 10" -- Thêm tùy chọn cho cURL
+      vim.g.vrc_set_default_mapping = 0              -- Tắt keymap mặc định để tránh xung đột
+      vim.g.vrc_curl_opts = "--connect-timeout 10"   -- Thêm tùy chọn cho cURL
       vim.g.vrc_output_buffer_name = "REST Response" -- Đặt tên buffer output
     end,
     event = "VeryLazy",
@@ -118,8 +143,26 @@ return {
     opts = require "configs.kulala-config",
     event = "VeryLazy",
   },
+
+  -- LazyGit
   {
-    "williamboman/mason.nvim",
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "Open lazy git" },
+    },
     event = "VeryLazy",
   },
   --[[
@@ -134,7 +177,7 @@ return {
       end,
     },
   },
-  
+
   {
     "preservim/nerdtree",
     cmd = { "NERDTreeToggle", "NERDTreeFind" },

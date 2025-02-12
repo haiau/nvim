@@ -27,7 +27,7 @@ local profiles = {
 
   More in-depth information can be found in cheovim's README on GitHub.
   --]]
-  my_config = { "~/.config/nvim/nvchad", {
+  nvchad = { "~/.config/nvim/nvchad", {
       plugins = "packer",
       preconfigure = "packer",
     }
@@ -46,4 +46,4 @@ local profiles = {
 }
 
 -- return <name_of_config>, <list_of_profiles>
-return "astronvim", profiles
+return "nvchad", profiles

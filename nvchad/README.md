@@ -69,7 +69,10 @@ brew link --overwrite luajit
 ```
 brew install jq
 ```
-
+### lazygit
+```
+brew install lazygit
+```
 
 # Ref
 

@@ -103,3 +103,12 @@ vim.keymap.set(
   "<cmd>lua require('kulala').from_curl()<cr>",
   { noremap = true, silent = true, desc = "Paste curl from clipboard as http request" }
 )
+
+-- Go to definition & implementation
+vim.keymap.set("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>",
+  { noremap = true, silent = true, desc = "  Go to definition" })
+vim.keymap.set("n", "<leader>gg", "<cmd>lua vim.lsp.buf.implementation()<CR>",
+  { noremap = true, silent = true, desc = "  Go to implementation" })
+vim.keymap.set("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>",
+  { noremap = true, silent = true, desc = "󰈞  Find references" })
+vim.keymap.set("n", "<leader>gb", "<C-o>", { noremap = true, silent = true, desc = "󰌍  Go back" })
