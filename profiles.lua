@@ -27,17 +27,17 @@ local profiles = {
 
   More in-depth information can be found in cheovim's README on GitHub.
   --]]
-  nvchad = { "~/.config/nvim/nvchad", {
+  nvchad = { "~/.config/nvim/p1_nvchad", {
       plugins = "packer",
       preconfigure = "packer",
     }
   },
-  p2 = { "~/.config/nvim/p2", {
+  p2 = { "~/.config/nvim/p2_ecosse3", {
       plugins = "packer",
       preconfigure = "packer",
     } 
   },
-  astronvim = { "~/.config/nvim/astronvim/", {
+  astronvim = { "~/.config/nvim/p3_astronvim", {
       plugins = "packer",
       preconfigure = "packer",
     } 
