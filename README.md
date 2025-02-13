@@ -1,15 +1,5 @@
 # Lightweight Neovim Configuration for Full Stack Development based on Ecovim and NvChad.
 
-
-
-████████╗██████╗  ██████╗ ████████╗██╗  ██╗██╗   ██╗
-╚══██╔══╝██╔══██╗██╔═══██╗╚══██╔══╝██║  ██║██║   ██║
-   ██║   ██████╔╝██║   ██║   ██║   ███████║██║   ██║
-   ██║   ██╔══██╗██║   ██║   ██║   ██╔══██║██║   ██║
-   ██║   ██║  ██║╚██████╔╝   ██║   ██║  ██║╚██████╔╝
-   ╚═╝   ╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝ ╚═════╝ 
-
-
 [![Last commit](https://img.shields.io/github/last-commit/ecosse3/nvim?style=for-the-badge)](https://github.com/ecosse3/nvim/commits/master)
 ![Stars](https://img.shields.io/github/stars/ecosse3/nvim?style=for-the-badge)
 ![License](https://img.shields.io/github/license/ecosse3/nvim?style=for-the-badge)
@@ -47,7 +37,7 @@ And of course usage of [telescope](https://github.com/nvim-telescope/telescope.n
 
 Dashboard
 
-![Dashboard](./.screenshots/6-alpha.png)
+![Dashboard](./.screenshots/1.png)
 
 Overview
 
