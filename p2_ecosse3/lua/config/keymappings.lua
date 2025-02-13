@@ -160,14 +160,14 @@ keymap(
 )
 
 -- TERMINAL
--- 🌟 Terminal Mode của Neovim
-keymap("n", "<leader>th", ":split | term<CR>", { desc = "Mở terminal (cửa sổ ngang)" })
-keymap("n", "<leader>tv", ":vs | term<CR>", { desc = "Mở terminal (cửa sổ dọc)" })
-
 -- 🚀 ToggleTerm (Dễ quản lý terminal)
--- keymap("n", "<leader>tp", "<cmd>ToggleTerm direction=float<CR>", { desc = "Mở terminal popup" })
--- keymap("n", "<leader>tn", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", { desc = "Mở terminal ngang" })
--- keymap("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<CR>", { desc = "Mở terminal dọc" })
+keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", { desc = "Mở terminal popup" })
+keymap("n", "<leader>tn", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "Mở terminal ngang" })
+keymap("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical<CR>", { desc = "Mở terminal dọc" })
+-- 🌟 Terminal Mode của Neovim
+keymap("n", "<leader>tt", ":45vs | term<CR>", { desc = "Mở terminal (cửa sổ dọc)" })
+keymap("n", "<leader>th", ":split | term<CR>", { desc = "Mở terminal (cửa sổ ngang)" })
+
 
 -- 🏃 Thoát nhanh khỏi Terminal Mode
 keymap("t", "<Esc>", "<C-\\><C-n>", { desc = "Thoát chế độ terminal" })
@@ -181,4 +181,7 @@ keymap("n", "<leader>fr", "<cmd>lua vim.lsp.buf.references()<CR>",
   { noremap = true, silent = true, desc = "󰈞  Find references" })
 keymap("n", "<leader>gb", "<C-o>", { noremap = true, silent = true, desc = "󰌍  Go back" })
 
-
+-- Theme
+keymap("n", "<leader>ts", function()
+  require("nvchad.themes").open()
+end, { desc = "Select themes" })

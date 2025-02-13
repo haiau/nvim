@@ -2,6 +2,7 @@ return {
   {
     "akinsho/toggleterm.nvim",
     version = "*",
+    event = "VeryLazy",
     config = function()
       function _G.set_terminal_keymaps()
         local opts = { noremap = true }
@@ -20,7 +21,9 @@ return {
           if term.direction == "horizontal" then
             return 15
           elseif term.direction == "vertical" then
-            return vim.o.columns * 0.4
+            return vim.o.columns * 0.2
+          -- elseif term.direction == "float" then
+          --   return math.floor(0.7 * vim.api.nvim_win_get_width(0))
           end
         end,
         open_mapping = [[<F12>]],
@@ -61,8 +64,8 @@ return {
           -- the 'curved' border is a custom border type
           -- not natively supported but implemented in this plugin.
           border = 'curved', -- single/double/shadow/curved
-          width = math.floor(0.7 * vim.fn.winwidth(0)),
-          height = math.floor(0.8 * vim.fn.winheight(0)),
+          -- width = math.floor(0.8 * vim.api.nvim_win_get_width(0)), -- math.floor(0.7 * vim.fn.winwidth(0)),
+          -- height = math.floor(0.8 * vim.api.nvim_win_get_height(0)), -- math.floor(0.8 * vim.fn.winheight(0)),
           winblend = 4,
         },
         winbar = {
@@ -72,7 +75,6 @@ return {
     end,
     keys = {
       { "<F12>" },
-      { "<Leader>at", "<cmd>ToggleTerm direction=float<CR>", desc = "terminal float" }
     }
   }
 }
