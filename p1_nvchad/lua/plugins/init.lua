@@ -165,6 +165,7 @@ return {
     },
     event = "VeryLazy",
   },
+  { 'echasnovski/mini.nvim', version = false, lazy = true },
   --[[
   {
     "rest-nvim/rest.nvim",

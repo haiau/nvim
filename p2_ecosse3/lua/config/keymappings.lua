@@ -1,4 +1,5 @@
 local keymap = vim.keymap.set
+local nomap = vim.keymap.del
 local silent = { silent = true }
 
 table.unpack = table.unpack or unpack -- 5.1 compatibility
@@ -105,3 +106,79 @@ end)
 -- Adjust font size
 keymap("n", "<M-=>", function() require('utils').adjust_font_size(1) end, silent)
 keymap("n", "<M-->", function() require('utils').adjust_font_size(-1) end, silent)
+
+-- LazyGit
+keymap("n", "<leader>gg", "<cmd>LazyGit<cr>", silent)
+vim.keymap.set("n", "<leader>glc", function()
+  local file = vim.fn.expand("%:p") -- Lấy đường dẫn tuyệt đối của file hiện tại
+  vim.cmd("tabnew") -- Mở tab mới (có thể bỏ nếu không cần)
+  vim.cmd("term lazygit log -- " .. file)
+end, { noremap = true, silent = true, desc = "Lazygit current file history" })
+
+-- Kulala
+keymap(
+  "n",
+  "<leader>kr",
+  "<cmd>lua require('kulala').run()<cr>",
+  { noremap = true, silent = true, desc = "Execute the request" }
+)
+keymap(
+  "n",
+  "[",
+  "<cmd>lua require('kulala').jump_prev()<cr>",
+  { noremap = true, silent = true, desc = "Jump to the previous request" }
+)
+keymap(
+  "n",
+  "]",
+  "<cmd>lua require('kulala').jump_next()<cr>",
+  { noremap = true, silent = true, desc = "Jump to the next request" }
+)
+keymap(
+  "n",
+  "<leader>ki",
+  "<cmd>lua require('kulala').inspect()<cr>",
+  { noremap = true, silent = true, desc = "Inspect the current request" }
+)
+keymap(
+  "n",
+  "<leader>kt",
+  "<cmd>lua require('kulala').toggle_view()<cr>",
+  { noremap = true, silent = true, desc = "Toggle between body and headers" }
+)
+keymap(
+  "n",
+  "<leader>kc",
+  "<cmd>lua require('kulala').copy()<cr>",
+  { noremap = true, silent = true, desc = "Copy the current request as a curl command" }
+)
+keymap(
+  "n",
+  "<leader>kp",
+  "<cmd>lua require('kulala').from_curl()<cr>",
+  { noremap = true, silent = true, desc = "Paste curl from clipboard as http request" }
+)
+
+-- TERMINAL
+-- 🌟 Terminal Mode của Neovim
+keymap("n", "<leader>th", ":split | term<CR>", { desc = "Mở terminal (cửa sổ ngang)" })
+keymap("n", "<leader>tv", ":vs | term<CR>", { desc = "Mở terminal (cửa sổ dọc)" })
+
+-- 🚀 ToggleTerm (Dễ quản lý terminal)
+-- keymap("n", "<leader>tp", "<cmd>ToggleTerm direction=float<CR>", { desc = "Mở terminal popup" })
+-- keymap("n", "<leader>tn", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", { desc = "Mở terminal ngang" })
+-- keymap("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<CR>", { desc = "Mở terminal dọc" })
+
+-- 🏃 Thoát nhanh khỏi Terminal Mode
+keymap("t", "<Esc>", "<C-\\><C-n>", { desc = "Thoát chế độ terminal" })
+
+-- Go to definition & implementation
+keymap("n", "<leader>fd", "<cmd>lua vim.lsp.buf.definition()<CR>",
+  { noremap = true, silent = true, desc = "  Go to definition" })
+keymap("n", "<leader>ff", "<cmd>lua vim.lsp.buf.implementation()<CR>",
+  { noremap = true, silent = true, desc = "  Go to implementation" })
+keymap("n", "<leader>fr", "<cmd>lua vim.lsp.buf.references()<CR>",
+  { noremap = true, silent = true, desc = "󰈞  Find references" })
+keymap("n", "<leader>gb", "<C-o>", { noremap = true, silent = true, desc = "󰌍  Go back" })
+
+

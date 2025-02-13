@@ -15,10 +15,18 @@ return {
           "mfussenegger/nvim-dap",
           "nvim-treesitter/nvim-treesitter",
         },
+        -- build = function()
+        --   if not require("nvim-treesitter.parsers").has_parser("dap_repl") then
+        --     vim.cmd(":TSInstall dap_repl")
+        --   end
+        -- end,
         build = function()
-          if not require("nvim-treesitter.parsers").has_parser("dap_repl") then
-            vim.cmd(":TSInstall dap_repl")
-          end
+          vim.schedule(function()
+            local parsers = require("nvim-treesitter.parsers")
+            if parsers and parsers.get_parser_configs()["dap_repl"] then
+              vim.cmd(":TSInstall dap_repl")
+            end
+          end)
         end,
       },
     },
