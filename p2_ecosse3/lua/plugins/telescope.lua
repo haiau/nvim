@@ -14,11 +14,14 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     config = function()
-      require('telescope').load_extension('fzf')
-      require("telescope").load_extension("git_worktree")
+      local telescope = require "telescope"
+      local lga_actions = require "telescope-live-grep-args.actions"
+
+      telescope.load_extension('fzf')
+      telescope.load_extension("git_worktree")
       local actions = require('telescope.actions')
 
-      require('telescope').setup {
+      telescope.setup {
         defaults = {
           border            = true,
           hl_result_eol     = true,
@@ -69,14 +72,39 @@ return {
             override_generic_sorter = false,
             override_file_sorter = true,
             case_mode = "smart_case",
-          }
+          },
+          live_grep_args = {
+            auto_quoting = true, -- enable/disable auto-quoting
+            -- define mappings, e.g.
+            mappings = { -- extend mappings
+              i = {
+                ["<C-k>"] = lga_actions.quote_prompt(),
+                ["<C-i>"] = lga_actions.quote_prompt { postfix = " --iglob " },
+                -- freeze the current list and start a fuzzy search in the frozen list
+                ["<C-space>"] = lga_actions.to_fuzzy_refine,
+              },
+            },
+            -- ... also accepts theme settings, for example:
+            -- theme = "dropdown", -- use dropdown theme
+            -- theme = { }, -- use own theme spec
+            -- layout_config = { mirror=true }, -- mirror preview pane
+          },
         }
       }
+
+      -- then load the extension
+      telescope.load_extension("live_grep_args")
     end,
     dependencies = {
       { "nvim-lua/popup.nvim" },
       { "nvim-lua/plenary.nvim" },
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      {
+        "nvim-telescope/telescope-live-grep-args.nvim" ,
+        -- This will not install any breaking changes.
+        -- For major updates, this must be adjusted manually.
+        version = "^1.0.0",
+      },
     },
     cmd = "Telescope",
     keys = {

@@ -185,3 +185,7 @@ keymap("n", "<leader>gb", "<C-o>", { noremap = true, silent = true, desc = "󰌍
 keymap("n", "<leader>ts", function()
   require("nvchad.themes").open()
 end, { desc = "Select themes" })
+
+-- Telescope
+keymap("n", "<leader>sa", require("telescope").extensions.live_grep_args.live_grep_args,
+{ noremap = true, desc = "Tìm nội dung bằng live grep args" })
