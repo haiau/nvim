@@ -87,6 +87,12 @@ return {
       { "<leader>gs",  function() Snacks.picker.git_status() end,                              desc = "git status" },
       { "<leader>glA", function() Snacks.picker.git_log() end,                                 desc = "log" },
       { "<leader>glC", function() Snacks.picker.git_log_file() end,                            desc = "file commits" },
+      -- ╭─────────────────────────────────────────────────────────╮
+      -- │ Find                                                    │
+      -- ╰─────────────────────────────────────────────────────────╯
+      { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
+{ "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
+    { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
     },
   }
 }

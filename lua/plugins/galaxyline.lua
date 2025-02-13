@@ -8,7 +8,7 @@ return {
       local gl = require('galaxyline')
       local condition = require('galaxyline.condition')
       local utils = require('utils')
-      local tokyonight_colors = require("tokyonight.colors").setup({})
+      -- local tokyonight_colors = require("tokyonight.colors").setup({})
       local package_info_present, package = pcall(require, 'package-info')
 
       -- Configuration {{{1
@@ -253,7 +253,7 @@ return {
       table.insert(gls.left, {
         GitIcon = {
           provider = function()
-            return ' '
+            return " "
           end,
           condition = condition.check_git_workspace,
           separator = '',
@@ -284,7 +284,7 @@ return {
         DiffAdd = {
           provider = 'DiffAdd',
           condition = condition.check_git_workspace,
-          icon = '  ',
+          icon = ' ',
           highlight = { colors.green, colors.gitbg }
         }
       })
@@ -292,7 +292,7 @@ return {
         DiffModified = {
           provider = 'DiffModified',
           condition = condition.check_git_workspace,
-          icon = '  ',
+          icon = ' ',
           highlight = { colors.blue, colors.gitbg }
         }
       })
@@ -300,7 +300,7 @@ return {
         DiffRemove = {
           provider = 'DiffRemove',
           condition = condition.check_git_workspace,
-          icon = '  ',
+          icon = ' ',
           highlight = { colors.red, colors.gitbg }
         }
       })
@@ -333,7 +333,7 @@ return {
             if gl.lspclient ~= nil then
               name = gl.lspclient()
             end
-            return '' .. name
+            return " " .. name
           end,
           highlight = { colors.lspbg, colors.lspicon }
         }
@@ -370,7 +370,7 @@ return {
       table.insert(gls.left, {
         DiagnosticWarn = {
           provider = 'DiagnosticWarn',
-          icon = '  ',
+          icon = '   ',
           highlight = { colors.diagwarn, colors.lspbg }
         }
       })
@@ -438,7 +438,7 @@ return {
         TypeFileFormatIcon = {
           provider = function()
             local icon = icons[vim.bo.fileformat] or ''
-            return string.format(' %s', icon)
+            return string.format(' %s ', icon)
           end,
           highlight = { colors.typebg, colors.typeicon }
         }
@@ -522,7 +522,7 @@ return {
       table.insert(gls.right, {
         StatsIcon = {
           provider = function()
-            return '⅑'
+            return "󰉢 " 
           end,
           highlight = { colors.statsbg, colors.statsicon }
         }

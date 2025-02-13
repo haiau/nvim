@@ -111,7 +111,7 @@ keymap("n", "<M-->", function() require('utils').adjust_font_size(-1) end, silen
 keymap("n", "<leader>gg", "<cmd>LazyGit<cr>", silent)
 vim.keymap.set("n", "<leader>glc", function()
   local file = vim.fn.expand("%:p") -- Lấy đường dẫn tuyệt đối của file hiện tại
-  vim.cmd("tabnew") -- Mở tab mới (có thể bỏ nếu không cần)
+  vim.cmd("tabnew")                 -- Mở tab mới (có thể bỏ nếu không cần)
   vim.cmd("term lazygit log -- " .. file)
 end, { noremap = true, silent = true, desc = "Lazygit current file history" })
 
@@ -173,13 +173,12 @@ keymap("n", "<leader>th", ":split | term<CR>", { desc = "Mở terminal (cửa s�
 keymap("t", "<Esc>", "<C-\\><C-n>", { desc = "Thoát chế độ terminal" })
 
 -- Go to definition & implementation
-keymap("n", "<leader>fd", "<cmd>lua vim.lsp.buf.definition()<CR>",
+keymap("n", "<leader>wd", "<cmd>lua vim.lsp.buf.definition()<CR>",
   { noremap = true, silent = true, desc = "  Go to definition" })
-keymap("n", "<leader>ff", "<cmd>lua vim.lsp.buf.implementation()<CR>",
+keymap("n", "<leader>ww", "<cmd>lua vim.lsp.buf.implementation()<CR>",
   { noremap = true, silent = true, desc = "  Go to implementation" })
-keymap("n", "<leader>fr", "<cmd>lua vim.lsp.buf.references()<CR>",
+keymap("n", "<leader>wr", "<cmd>lua vim.lsp.buf.references()<CR>",
   { noremap = true, silent = true, desc = "󰈞  Find references" })
-keymap("n", "<leader>gb", "<C-o>", { noremap = true, silent = true, desc = "󰌍  Go back" })
 
 -- Theme
 keymap("n", "<leader>ts", function()
@@ -188,4 +187,4 @@ end, { desc = "Select themes" })
 
 -- Telescope
 keymap("n", "<leader>sa", require("telescope").extensions.live_grep_args.live_grep_args,
-{ noremap = true, desc = "Tìm nội dung bằng live grep args" })
+  { noremap = true, desc = "Tìm nội dung bằng live grep args" })
