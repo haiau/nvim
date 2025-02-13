@@ -80,13 +80,14 @@ Git Side Blame
 **Prerequisities**
 
 - Make sure you have installed the latest version of Neovim v0.9.0+ (nightly is preferred).
-- Have wget, curl, unzip, git, make, pip, python, npm, node, luarocks, jd, fd, ripgrep, lazygit, luajit and cargo installed on your system. You can check if you are missing anything with `:checkhealth` command.
+- Have wget, curl, unzip, git, make, pip, python, npm, node, luarocks, jd, fd, ripgrep, lazygit, luajit, font-fira-code and cargo installed on your system. You can check if you are missing anything with `:checkhealth` command.
 ```
 brew install luarocks
 brew install ripgrep
 brew install fd
 brew install jq
 brew install lazygit
+brew install font-fira-code
 
 # LuaJIT
 brew install LuaJIT
