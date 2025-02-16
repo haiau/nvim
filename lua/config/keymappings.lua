@@ -179,9 +179,11 @@ keymap("n", "<leader>ww", "<cmd>lua vim.lsp.buf.implementation()<CR>",
   { noremap = true, silent = true, desc = "  Go to implementation" })
 keymap("n", "<leader>wf", "<cmd>lua vim.lsp.buf.references()<CR>",
   { noremap = true, silent = true, desc = "󰈞  Find references" })
-keymap("n", "<leader>we", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true, desc = "  Go to declaration" })
+keymap("n", "<leader>we", "<cmd>lua vim.lsp.buf.declaration()<CR>",
+  { noremap = true, silent = true, desc = "  Go to declaration" })
 -- Reafactor
-vim.api.nvim_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true, desc = "󰁃  Rename" })
+vim.api.nvim_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.rename()<CR>',
+  { noremap = true, silent = true, desc = "󰁃  Rename" })
 
 -- Theme
 keymap("n", "<leader>ts", function()
@@ -191,18 +193,19 @@ end, { desc = "Select themes" })
 -- Telescope
 keymap("n", "<leader>sa", require("telescope").extensions.live_grep_args.live_grep_args,
   { noremap = true, desc = "Tìm nội dung bằng live grep args" })
-
+keymap("n", "<leader>se", "<cmd>Telescope diagnostics<cr>",
+  { noremap = true, desc = "Telescope diagnostics (warnings & errors)" })
 
 -- Specture
 keymap('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {
-    desc = "Toggle Spectre"
+  desc = "Toggle Spectre"
 })
 keymap('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
-    desc = "Search current word"
+  desc = "Search current word"
 })
 keymap('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR>', {
-    desc = "Search current word"
+  desc = "Search current word"
 })
 keymap('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
-    desc = "Search on current file"
+  desc = "Search on current file"
 })
