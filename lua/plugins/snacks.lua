@@ -7,7 +7,7 @@ return {
     lazy = false,
     opts = {
       bigfile      = { enabled = true },
-      dashboard    = { enabled = false },
+      dashboard    = { enabled = true },
       indent       = { enabled = false },
       input        = { enabled = true },
       notifier     = { enabled = true },
@@ -65,7 +65,7 @@ return {
       -- ╭─────────────────────────────────────────────────────────╮
       -- │ Picker                                                  │
       -- ╰─────────────────────────────────────────────────────────╯
-      { "<leader>e",       function() Snacks.picker.explorer() end,                                desc = "explorer" },
+      { "<leader>e",   function() Snacks.picker.explorer() end,                                desc = "explorer" },
       { "<C-p>",       function() Snacks.picker.smart() end,                                   desc = "smart files" },
       { "<S-p>",       function() Snacks.picker.grep() end,                                    desc = "grep" },
       { "<leader>pw",  function() Snacks.picker.grep_word() end,                               desc = "grep word",                   mode = { "n", "v" } },
@@ -90,9 +90,9 @@ return {
       -- ╭─────────────────────────────────────────────────────────╮
       -- │ Find                                                    │
       -- ╰─────────────────────────────────────────────────────────╯
-      { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-{ "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
-    { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
+      { "<leader>ff",  function() Snacks.picker.files() end,                                   desc = "Find Files" },
+      { "<leader>fp",  function() Snacks.picker.projects() end,                                desc = "Projects" },
+      { "<leader>fr",  function() Snacks.picker.recent() end,                                  desc = "Recent" },
     },
   }
 }

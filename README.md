@@ -148,7 +148,8 @@ Space (SPC) is my Leader key.
 | c            | Copy                                          |
 | y            | Copy name                                     |
 | r            | Rename                                        |
-| I            | Toggle git ignore files                       |
+| I            | Toggle git ignore files                       |  
+| H            | Toggle hidden files                           |
 
 </details>
 
@@ -165,7 +166,21 @@ Space (SPC) is my Leader key.
 | SPC s d      | Search dotfiles     |
 | SPC s h      | Search file history |
 | SPC s s      | Search history      |
+| SPC s a | Telescope live grep args |
+</details>
 
+<details>
+<summary>Find and Replace</summary>
+
+### Find and Replace
+
+#### SPC s a: To open telescope live grep args
+#### Keywords: [Docs](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
+```
+    "keyword", /path/to/dir
+```
+#### Then: `<C - q>` add to quckfix list
+#### Replace all by cmd: `:cfdo %s/keyword/replacement/gc` or `:cfdo %s/keyword/replacement/g | update`
 </details>
 
 <details>
