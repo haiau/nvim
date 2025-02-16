@@ -3,42 +3,47 @@ return {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      local conform = require("conform")
+      local conform = require "conform"
 
-      conform.setup({
+      conform.setup {
         formatters_by_ft = {
-          css = { { "prettierd", "prettier" } },
-          graphql = { { "prettierd", "prettier" } },
-          html = { { "prettierd", "prettier" } },
-          javascript = { { "prettierd", "prettier" } },
-          javascriptreact = { { "prettierd", "prettier" } },
-          json = { { "prettierd", "prettier" } },
+          css = { "biome" },
+          -- graphql = {  "biome"  },
+          html = { "biome" },
+          javascript = { "biome" },
+          javascriptreact = { "biome" },
+          json = { "biome" },
           lua = { "stylua" },
-          markdown = { { "prettierd", "prettier" } },
-          python = { "isort", "black" },
-          sql = { "sql-formatter" },
-          svelte = { { "prettierd", "prettier" } },
-          typescript = { { "prettierd", "prettier", "sql-formatter" } },
-          typescriptreact = { { "prettierd", "prettier" } },
-          yaml = { "prettier" },
-          xml = { "xmlformatter" }
+          -- markdown = {  "biome"  },
+          -- python = { "isort", "black" },
+          -- sql = { "sql-formatter" },
+          -- svelte = {  "biome"  },
+          typescript = { "biome" },
+          typescriptreact = { "biome" },
+          -- yaml = { "prettier" },
+          -- xml = { "xmlformatter" },
+          go = { "goimports", "gofmt" },
         },
-      })
+        format_on_save = {
+          lsp_fallback = true,
+          timeout_ms = 500,
+        },
+      }
 
       vim.keymap.set({ "n" }, "<leader>f", function()
-        conform.format({
+        conform.format {
           lsp_fallback = true,
           async = false,
           timeout_ms = 500,
-        })
+        }
       end, { desc = "format file" })
 
       vim.keymap.set({ "v" }, "<leader>f", function()
-        conform.format({
+        conform.format {
           lsp_fallback = true,
           async = false,
           timeout_ms = 500,
-        })
+        }
       end, { desc = "format selection" })
 
       vim.api.nvim_create_user_command("Format", function(args)
@@ -51,7 +56,7 @@ return {
           }
         end
 
-        conform.format({ async = true, lsp_fallback = true, range = range })
+        conform.format { async = true, lsp_fallback = true, range = range }
       end, { range = true })
     end,
   },

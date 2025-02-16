@@ -1,18 +1,18 @@
 -- Setup installer & lsp configs
-local mason = require("mason")
-local mason_lsp = require("mason-lspconfig")
-local ufo_utils = require("utils._ufo")
+local mason = require "mason"
+local mason_lsp = require "mason-lspconfig"
+local ufo_utils = require "utils._ufo"
 local ufo_config_handler = ufo_utils.handler
-local lspconfig = require("lspconfig")
+local lspconfig = require "lspconfig"
 
-mason.setup({
+mason.setup {
   ui = {
     -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
     border = EcoVim.ui.float.border or "rounded",
   },
-})
+}
 
-mason_lsp.setup({
+mason_lsp.setup {
   -- A list of servers to automatically install if they're not already installed
   ensure_installed = {
     --"bashls",
@@ -27,6 +27,7 @@ mason_lsp.setup({
     "vtsls",
     "biome",
     "gopls",
+    "stylua",
     -- "ts_ls",
   },
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
@@ -37,8 +38,7 @@ mason_lsp.setup({
   --   - { exclude: string[] }: All servers set up via lspconfig, except the ones provided in the list, are automatically installed.
   --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
   automatic_installation = true,
-})
-
+}
 
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -48,7 +48,7 @@ local handlers = {
   ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = EcoVim.ui.float.border }),
 }
 
-local capabilities = require('blink.cmp').get_lsp_capabilities()
+local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local function on_attach(client, bufnr)
   vim.lsp.inlay_hint.enable(true, { bufnr })
@@ -75,12 +75,12 @@ require("mason-lspconfig").setup_handlers {
   end,
 
   ["ts_ls"] = function()
-    require("typescript-tools").setup({
+    require("typescript-tools").setup {
       capabilities = capabilities or vim.lsp.protocol.make_client_capabilities(),
       handlers = require("config.lsp.servers.tsserver").handlers,
       on_attach = require("config.lsp.servers.tsserver").on_attach,
       settings = require("config.lsp.servers.tsserver").settings,
-    })
+    }
   end,
 
   ["tailwindcss"] = function()
@@ -91,7 +91,7 @@ require("mason-lspconfig").setup_handlers {
       lineFoldingOnly = true,
     }
 
-    lspconfig.tailwindcss.setup({
+    lspconfig.tailwindcss.setup {
       capabilities = capabilities,
       filetypes = require("config.lsp.servers.tailwindcss").filetypes,
       handlers = handlers,
@@ -101,20 +101,20 @@ require("mason-lspconfig").setup_handlers {
       flags = {
         debounce_text_changes = 1000,
       },
-    })
+    }
   end,
 
   ["cssls"] = function()
-    lspconfig.cssls.setup({
+    lspconfig.cssls.setup {
       capabilities = capabilities,
       handlers = handlers,
       on_attach = require("config.lsp.servers.cssls").on_attach,
       settings = require("config.lsp.servers.cssls").settings,
-    })
+    }
   end,
 
   ["eslint"] = function()
-    lspconfig.eslint.setup({
+    lspconfig.eslint.setup {
       capabilities = capabilities,
       handlers = handlers,
       on_attach = require("config.lsp.servers.eslint").on_attach,
@@ -124,39 +124,39 @@ require("mason-lspconfig").setup_handlers {
         debounce_text_changes = 1000,
         exit_timeout = 1500,
       },
-    })
+    }
   end,
 
   ["jsonls"] = function()
-    lspconfig.jsonls.setup({
+    lspconfig.jsonls.setup {
       capabilities = capabilities,
       handlers = handlers,
       on_attach = on_attach,
       settings = require("config.lsp.servers.jsonls").settings,
-    })
+    }
   end,
 
   ["lua_ls"] = function()
-    lspconfig.lua_ls.setup({
+    lspconfig.lua_ls.setup {
       capabilities = capabilities,
       handlers = handlers,
       on_attach = on_attach,
       settings = require("config.lsp.servers.lua_ls").settings,
-    })
+    }
   end,
 
   ["vuels"] = function()
-    lspconfig.vuels.setup({
+    lspconfig.vuels.setup {
       filetypes = require("config.lsp.servers.vuels").filetypes,
       handlers = handlers,
       init_options = require("config.lsp.servers.vuels").init_options,
       on_attach = require("config.lsp.servers.vuels").on_attach,
       settings = require("config.lsp.servers.vuels").settings,
-    })
-  end
+    }
+  end,
 }
 
-require("ufo").setup({
+require("ufo").setup {
   fold_virt_text_handler = ufo_config_handler,
   close_fold_kinds_for_ft = { default = { "imports" } },
-})
+}

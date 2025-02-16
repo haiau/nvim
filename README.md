@@ -82,6 +82,9 @@ Git Side Blame
 - Make sure you have installed the latest version of Neovim v0.9.0+ (nightly is preferred).
 - Have wget, curl, unzip, git, make, pip, python, npm, node, luarocks, jd, fd, ripgrep, lazygit, luajit, font-fira-code and cargo installed on your system. You can check if you are missing anything with `:checkhealth` command.
 ```
+
+go install golang.org/x/tools/cmd/goimports@latest
+
 brew install luarocks
 brew install ripgrep
 brew install fd

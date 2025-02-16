@@ -20,10 +20,10 @@ EcoVim = {
     -- Make sure to reload nvim & "Update Plugins" after change
     ai = {
       codecompanion = {
-        enabled = true,
+        enabled = false,
       },
       copilot = {
-        enabled = true,
+        enabled = false,
       },
     },
     completion = {
