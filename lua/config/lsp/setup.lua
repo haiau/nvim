@@ -27,7 +27,6 @@ mason_lsp.setup {
     "vtsls",
     "biome",
     "gopls",
-    "stylua",
     -- "ts_ls",
   },
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.

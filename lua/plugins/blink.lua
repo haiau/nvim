@@ -66,7 +66,7 @@ return {
           'codecompanion',
           'copilot',
         },
-        cmdline = {},
+        -- cmdlines = {},
 
         providers = {
           codecompanion = {

@@ -80,6 +80,17 @@ Git Side Blame
 **Prerequisities**
 
 - Make sure you have installed the latest version of Neovim v0.9.0+ (nightly is preferred).
+
+```
+curl -LO https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-macos-arm64.tar.gz
+
+tar xzf nvim-macos-arm64.tar.gz
+
+sudo cp -rf nvim-macos-arm64 /usr/local/nvim
+
+sudo ln -s /usr/local/nvim/bin/nvim /usr/local/bin/nvim
+```
+
 - Have wget, curl, unzip, git, make, pip, python, npm, node, luarocks, jd, fd, ripgrep, lazygit, luajit, font-fira-code and cargo installed on your system. You can check if you are missing anything with `:checkhealth` command.
 ```
 
