@@ -9,6 +9,7 @@ return {
       local bufferline = require("bufferline")
       bufferline.setup {
         options = {
+          globalstatus = true,
           close_command = function(n)
             Snacks.bufdelete(n)
           end,
@@ -16,7 +17,8 @@ return {
             Snacks.bufdelete(n)
           end,
           show_buffer_close_icons = false,
-          separator_style = { "", "" },
+          -- separator_style = { "", "" },
+          separator_style = "thin",
           always_show_bufferline = true,
           style_preset = bufferline.style_preset.no_italic,
           numbers = function(opts)
@@ -31,10 +33,10 @@ return {
           offsets = {
             {
               filetype = "snacks_layout_box",
-              text = "",
+              text = "File Explorer",
               highlight = "EcovimNvimTreeTitle",
               text_align = "center",
-              separator = false,
+              separator = true,
             },
           },
         },

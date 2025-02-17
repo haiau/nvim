@@ -1,0 +1,18 @@
+-- return {
+--   {
+--     "RRethy/nvim-base16", -- Cài đặt Base16 color schemes
+--     lazy = false,
+--   },
+--   {
+--     "zaldih/themery.nvim",
+--     lazy = false,
+--     event = "VeryLazy",
+--     config = function()
+--       require("themery").setup({
+--         -- add the config here
+--         theme = "base16-tomorrow-night", -- Chọn một theme từ base16
+--         livePreview = true,              -- Apply theme while picking. Default to true.
+--       })
+--     end
+--   },
+-- }

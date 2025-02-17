@@ -717,6 +717,6 @@ return {
       })
       -- }}}1
     end,
-    event = "VeryLazy",
+    -- event = "VeryLazy",
   },
 }
