@@ -1,21 +1,23 @@
 return {
-   "nvim-lua/plenary.nvim",
-   { "nvim-tree/nvim-web-devicons", lazy = true },
+  "nvim-lua/plenary.nvim",
 
-   {
-      "nvchad/ui",
-      config = function()
-        require "nvchad"
-      end
-   },
+  { "nvim-tree/nvim-web-devicons", lazy = true },
 
-   {
-      "nvchad/base46",
-      lazy = true,
-      build = function()
-        require("base46").load_all_highlights()
-      end,
-   },
+  {
+    "nvchad/ui",
+    config = function()
+      require "nvchad"
+    end
+  },
 
-   "nvchad/volt", -- optional, needed for theme switcher    
+  {
+    "nvchad/base46",
+    lazy = false, -- Load ngay khi khởi động
+    -- priority = 1000, -- Load trước các plugin khác
+    config = function()
+      require("base46").load_all_highlights()
+    end,
+  },
+
+  "nvchad/volt", -- optional, needed for theme switcher
 }

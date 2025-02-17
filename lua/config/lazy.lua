@@ -1,6 +1,5 @@
 -- put this in your main init.lua file ( before lazy setup )
-vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
-
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -73,8 +72,8 @@ require("lazy").setup("plugins", {
 
 vim.keymap.set("n", "<leader>/l", "<cmd>:Lazy<cr>")
 
--- put this after lazy setup 
+-- put this after lazy setup
 
 -- (method 1, For heavy lazyloaders)
- dofile(vim.g.base46_cache .. "defaults")
- dofile(vim.g.base46_cache .. "statusline")
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
