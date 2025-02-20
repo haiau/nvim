@@ -9,7 +9,6 @@ return {
       local bufferline = require("bufferline")
       bufferline.setup {
         options = {
-          globalstatus = true,
           close_command = function(n)
             Snacks.bufdelete(n)
           end,
@@ -32,26 +31,26 @@ return {
           end,
           offsets = {
             {
-              filetype = "snacks_layout_box",
-              text = "File Explorer",
+              -- filetype = "snacks_layout_box",
+              text = "",
               highlight = "EcovimNvimTreeTitle",
               text_align = "center",
-              separator = true,
+              separator = false,
             },
           },
         },
       }
     end,
     keys = {
-      { "<A-1>",       "<cmd>BufferLineGoToBuffer 1<CR>" },
-      { "<A-2>",       "<cmd>BufferLineGoToBuffer 2<CR>" },
-      { "<A-3>",       "<cmd>BufferLineGoToBuffer 3<CR>" },
-      { "<A-4>",       "<cmd>BufferLineGoToBuffer 4<CR>" },
-      { "<A-5>",       "<cmd>BufferLineGoToBuffer 5<CR>" },
-      { "<A-6>",       "<cmd>BufferLineGoToBuffer 6<CR>" },
-      { "<A-7>",       "<cmd>BufferLineGoToBuffer 7<CR>" },
-      { "<A-8>",       "<cmd>BufferLineGoToBuffer 8<CR>" },
-      { "<A-9>",       "<cmd>BufferLineGoToBuffer 9<CR>" },
+      { "<C-1>",       "<cmd>BufferLineGoToBuffer 1<CR>" },
+      { "<C-2>",       "<cmd>BufferLineGoToBuffer 2<CR>" },
+      { "<C-3>",       "<cmd>BufferLineGoToBuffer 3<CR>" },
+      { "<C-4>",       "<cmd>BufferLineGoToBuffer 4<CR>" },
+      { "<C-5>",       "<cmd>BufferLineGoToBuffer 5<CR>" },
+      { "<C-6>",       "<cmd>BufferLineGoToBuffer 6<CR>" },
+      { "<C-7>",       "<cmd>BufferLineGoToBuffer 7<CR>" },
+      { "<C-8>",       "<cmd>BufferLineGoToBuffer 8<CR>" },
+      { "<C-9>",       "<cmd>BufferLineGoToBuffer 9<CR>" },
       { "<Leader>bb",  "<cmd>BufferLineMovePrev<CR>",                desc = "Move back" },
       { "<Leader>bl",  "<cmd>BufferLineCloseLeft<CR>",               desc = "Close Left" },
       { "<Leader>br",  "<cmd>BufferLineCloseRight<CR>",              desc = "Close Right" },
