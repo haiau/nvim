@@ -215,3 +215,9 @@ keymap('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_
 -- Outline
 keymap("n", "<leader>o", "<cmd>Telescope lsp_document_symbols<CR>",
   { noremap = true, silent = true, desc = "Symbols Outline" })
+
+-- Nvim Tree
+keymap("n", "<leader>n", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "Toggle NvimTree" })
+
+-- Oil nvim
+-- keymap("n", "<leader>o", "<cmd>Oil<CR>", { noremap = true, silent = true, desc = "Open Oil" })
