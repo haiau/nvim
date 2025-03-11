@@ -24,6 +24,7 @@ return {
           "http",
           "xml",
           "go",
+          "yaml",
         },                              -- one of "all", or a list of languages
         sync_install = false,           -- install languages synchronously (only applied to `ensure_installed`)
         ignore_install = { "haskell" }, -- list of parsers to ignore installing
@@ -116,9 +117,9 @@ return {
     config = function()
       require('nvim-ts-autotag').setup({
         opts = {
-          enable_close = false,          -- Auto close tags
-          enable_rename = true,          -- Auto rename pairs of tags
-          enable_close_on_slash = true   -- Auto close on trailing </
+          enable_close = false,        -- Auto close tags
+          enable_rename = true,        -- Auto rename pairs of tags
+          enable_close_on_slash = true -- Auto close on trailing </
         },
         -- Also override individual filetype configs, these take priority.
         -- Empty by default, useful if one of the "opts" global settings

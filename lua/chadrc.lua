@@ -6,12 +6,28 @@
 local M = {}
 
 M.base46 = {
-  theme = "oxocarbon",
+  theme = "chadracula-evondev",
+  hl_override = {
+    Keyword = { italic = true, fg = "purple" },      -- Đổi màu và kiểu chữ cho keywords
+    ["@keyword"] = { italic = true, fg = "purple" }, -- Treesitter keywords
+    ["@keyword.function"] = { fg = "blue", italic = true },
+    Function = { italic = true, fg = "green" },      -- Đổi màu và kiểu chữ cho functions
+    ["@function"] = { italic = true, fg = "green" }, -- Treesitter functions
 
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
+    Type = { italic = true },
+    ["@type"] = { italic = true },
+
+    Method = { bold = true, italic = true },
+    ["@method"] = { bold = true, italic = true },
+    ["@property"] = { bold = true },
+    ["@field"] = { bold = true },
+    ["@variable.builtin"] = { bold = true },
+    ["@variable"] = { bold = true },
+  },
+
+
 }
 
 -- M.nvdash = { load_on_startup = true }
