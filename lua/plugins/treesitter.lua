@@ -30,6 +30,8 @@ return {
         ignore_install = { "haskell" }, -- list of parsers to ignore installing
         highlight = {
           enable = true,
+          additional_vim_regex_highlighting = false, -- false for better performance
+
           -- disable = { "c", "rust" },  -- list of language that will be disabled
           -- additional_vim_regex_highlighting = false,
         },
