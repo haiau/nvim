@@ -221,3 +221,10 @@ keymap("n", "<leader>n", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = t
 
 -- Oil nvim
 -- keymap("n", "<leader>o", "<cmd>Oil<CR>", { noremap = true, silent = true, desc = "Open Oil" })
+
+-- Save file
+keymap("n", "<D-s>", ":w<cr>", { noremap = true, silent = true })          -- cmd + s trong normal mode
+keymap("i", "<D-s>", "<esc>:w<cr>a", { noremap = true, silent = true })    -- cmd + s trong insert mode
+-- Save all files
+keymap("n", "<D-S-s>", ":wa<cr>", { noremap = true, silent = true })       -- cmd + shift + s trong normal mode
+keymap("i", "<D-S-s>", "<esc>:wa<cr>a", { noremap = true, silent = true }) -- cmd + shift + s trong insert mode
