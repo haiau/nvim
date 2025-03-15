@@ -4,7 +4,7 @@ return {
     cond = EcoVim.plugins.ai.copilot.enabled,
     lazy = false,
     cmd = "Copilot",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     opts = {
       panel = { enabled = false, auto_refresh = true },
       suggestion = {
