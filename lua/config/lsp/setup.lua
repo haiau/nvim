@@ -40,11 +40,14 @@ mason_lsp.setup {
 }
 
 local handlers = {
-  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    silent = true,
-    border = EcoVim.ui.float.border,
-  }),
-  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = EcoVim.ui.float.border }),
+  -- ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  --   silent = true,
+  --   border = EcoVim.ui.float.border,
+  -- }),
+  -- ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  --   silent = true,
+  --   border = EcoVim.ui.float.border
+  -- }),
 }
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -54,12 +57,12 @@ local function on_attach(client, bufnr)
 end
 
 -- Global override for floating preview border
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = opts.border or EcoVim.ui.float.border or "rounded" -- default to EcoVim border
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
+-- local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+-- function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+--   opts = opts or {}
+--   opts.border = opts.border or EcoVim.ui.float.border or "rounded" -- default to EcoVim border
+--   return orig_util_open_floating_preview(contents, syntax, opts, ...)
+-- end
 
 require("mason-lspconfig").setup_handlers {
   -- The first entry (without a key) will be the default handler

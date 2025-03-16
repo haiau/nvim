@@ -135,7 +135,7 @@ return {
 
         documentation = {
           auto_show = true,
-          auto_show_delay_ms = 500,
+          auto_show_delay_ms = 2000,
           treesitter_highlighting = true,
           window = {
             border = EcoVim.ui.float.border,
@@ -143,13 +143,13 @@ return {
         },
 
         ghost_text = {
-          enabled = true,
+          enabled = false, -- Tắt gợi ý mờ
         },
 
       },
 
       signature = {
-        enabled = true,
+        enabled = false,
         window = {
           border = EcoVim.ui.float.border,
         }
